@@ -60,3 +60,39 @@ let arr = [
     let myArray = arr.concat(arr1);
     console.log(myArray);
   }
+
+//firstGame
+
+let playGame = confirm("Shall we play a game?");
+
+if(playGame){
+    //play
+    let playerChoice = prompt("please enter rock, paper or scissors.");
+    if(playerChoice){
+       let playerOne = playerChoice.trim().toLowerCase();
+       if(playerOne==="rock" || playerOne==="paper" || playerOne==="scissors"){
+           let computerChoice =     Math.floor(Math.random()*3 +1);
+           let computer = computerChoice === 1 ? "rock"
+           : computerChoice === 2 ? "paper"
+           : "scissors";
+           let result = playerOne === computer 
+           ? `playerOne:${playerOne}\n computer:${computer}\n Tie Game!`
+  : playerOne === "rock" && computer === "paper" 
+  ? `playerOne:${playerOne}\n computer:${computer}\nComputer wins!` 
+  : playerOne === "paper" && computer === "Scissors" 
+  ? `playerOne:${playerOne}\n computer:${computer}\nComputer wins!` 
+  : playerOne === "Scissors" && computer === "rock" 
+  ? `playerOne:${playerOne}\n computer:${computer}\nComputer wins!`  
+  : `playerOne:${playerOne}\n computer:${computer}\n PlayerOne wins!` 
+  alert(result);
+  let playAgain = prompt("play again? type in yes to play again");
+  playAgain=== "yes" ? location.reload() : alert("ok, thanks for playing");
+       }else{
+        alert("you didnt enter rock, paper or scissors");
+       }
+    } else{
+        alert("Guess you changed yuor mind!");
+    }
+}else{
+    alert("Ok, maybe later");
+}
